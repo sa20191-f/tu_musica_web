@@ -96,7 +96,7 @@ export default class Lists extends Component{
                     {/* Single Album */}
                     <div className="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t c p">
                         <div className="single-album">
-                        <img src="img/bg-img/a1.jpg" alt />
+                        <img src="img/bg-img/a1.jpg" alt = ""  />
                         <div className="album-info">
                             <a href="#">
                             <h5>The Cure</h5>
@@ -108,7 +108,7 @@ export default class Lists extends Component{
                     {/* Single Album */}
                     <div className="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item s e q">
                         <div className="single-album">
-                        <img src="img/bg-img/a2.jpg" alt />
+                        <img src="img/bg-img/a2.jpg" alt = "" />
                         <div className="album-info">
                             <a href="#">
                             <h5>Sam Smith</h5>
@@ -120,7 +120,7 @@ export default class Lists extends Component{
                     {/* Single Album */}
                     <div className="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item w f r">
                         <div className="single-album">
-                        <img src="img/bg-img/a3.jpg" alt />
+                        <img src="img/bg-img/a3.jpg" alt = "" />
                         <div className="album-info">
                             <a href="#">
                             <h5>Will I am</h5>
@@ -132,7 +132,7 @@ export default class Lists extends Component{
                     {/* Single Album */}
                     <div className="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t g u">
                         <div className="single-album">
-                        <img src="img/bg-img/a4.jpg" alt />
+                        <img src="img/bg-img/a4.jpg" alt = "" />
                         <div className="album-info">
                             <a href="#">
                             <h5>The Cure</h5>
@@ -144,7 +144,7 @@ export default class Lists extends Component{
                     {/* Single Album */}
                     <div className="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item d h v">
                         <div className="single-album">
-                        <img src="img/bg-img/a5.jpg" alt />
+                        <img src="img/bg-img/a5.jpg" alt = "" />
                         <div className="album-info">
                             <a href="#">
                             <h5>DJ SMITH</h5>
@@ -156,7 +156,7 @@ export default class Lists extends Component{
                     {/* Single Album */}
                     <div className="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t i x">
                         <div className="single-album">
-                        <img src="img/bg-img/a6.jpg" alt />
+                        <img src="img/bg-img/a6.jpg" alt = "" />
                         <div className="album-info">
                             <a href="#">
                             <h5>The Ustopable</h5>
@@ -168,7 +168,7 @@ export default class Lists extends Component{
                     {/* Single Album */}
                     <div className="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item b j y">
                         <div className="single-album">
-                        <img src="img/bg-img/a7.jpg" alt />
+                        <img src="img/bg-img/a7.jpg" alt = "" />
                         <div className="album-info">
                             <a href="#">
                             <h5>Beyonce</h5>
@@ -180,7 +180,7 @@ export default class Lists extends Component{
                     {/* Single Album */}
                     <div className="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item a k z">
                         <div className="single-album">
-                        <img src="img/bg-img/a8.jpg" alt />
+                        <img src="img/bg-img/a8.jpg" alt = "" />
                         <div className="album-info">
                             <a href="#">
                             <h5>Aam Smith</h5>
@@ -192,7 +192,7 @@ export default class Lists extends Component{
                     {/* Single Album */}
                     <div className="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item w l number">
                         <div className="single-album">
-                        <img src="img/bg-img/a9.jpg" alt />
+                        <img src="img/bg-img/a9.jpg" alt = "" />
                         <div className="album-info">
                             <a href="#">
                             <h5>Will I am</h5>
@@ -204,7 +204,7 @@ export default class Lists extends Component{
                     {/* Single Album */}
                     <div className="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item d m">
                         <div className="single-album">
-                        <img src="img/bg-img/a10.jpg" alt />
+                        <img src="img/bg-img/a10.jpg" alt = "" />
                         <div className="album-info">
                             <a href="#">
                             <h5>DJ SMITH</h5>
@@ -216,7 +216,7 @@ export default class Lists extends Component{
                     {/* Single Album */}
                     <div className="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t n">
                         <div className="single-album">
-                        <img src="img/bg-img/a11.jpg" alt />
+                        <img src="img/bg-img/a11.jpg" alt = "" />
                         <div className="album-info">
                             <a href="#">
                             <h5>The Ustopable</h5>
@@ -228,7 +228,7 @@ export default class Lists extends Component{
                     {/* Single Album */}
                     <div className="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item b o">
                         <div className="single-album">
-                        <img src="img/bg-img/a12.jpg" alt />
+                        <img src="img/bg-img/a12.jpg" alt = "" />
                         <div className="album-info">
                             <a href="#">
                             <h5>Beyonce</h5>
@@ -249,7 +249,7 @@ export default class Lists extends Component{
                     <div className="col-12 col-sm-6 col-md-3">
                         <div className="single-album-area">
                         <div className="album-thumb">
-                            <img src="img/bg-img/b1.jpg" alt />
+                            <img src="img/bg-img/b1.jpg" alt = "" />
                             {/* Album Price */}
                             <div className="album-price">
                             <p>$0.90</p>
@@ -271,7 +271,7 @@ export default class Lists extends Component{
                     <div className="col-12 col-sm-6 col-md-3">
                         <div className="single-album-area">
                         <div className="album-thumb">
-                            <img src="img/bg-img/b2.jpg" alt />
+                            <img src="img/bg-img/b2.jpg" alt = "" />
                         </div>
                         <div className="album-info">
                             <a href="#">
@@ -285,7 +285,7 @@ export default class Lists extends Component{
                     <div className="col-12 col-sm-6 col-md-3">
                         <div className="single-album-area">
                         <div className="album-thumb">
-                            <img src="img/bg-img/b3.jpg" alt />
+                            <img src="img/bg-img/b3.jpg" alt = "" />
                         </div>
                         <div className="album-info">
                             <a href="#">
@@ -299,7 +299,7 @@ export default class Lists extends Component{
                     <div className="col-12 col-sm-6 col-md-3">
                         <div className="single-album-area">
                         <div className="album-thumb">
-                            <img src="img/bg-img/b4.jpg" alt />
+                            <img src="img/bg-img/b4.jpg" alt = "" />
                         </div>
                         <div className="album-info">
                             <a href="#">
@@ -326,7 +326,7 @@ export default class Lists extends Component{
                     <div className="row">
                     <div className="col-12">
                         <div className="adds">
-                        <a href="#"><img src="img/bg-img/add3.gif" alt /></a>
+                        <a href="#"><img src="img/bg-img/add3.gif" alt = "" /></a>
                         </div>
                     </div>
                     </div>
@@ -341,7 +341,7 @@ export default class Lists extends Component{
                     <div className="col-12">
                         <div className="single-song-area mb-30 d-flex flex-wrap align-items-end">
                         <div className="song-thumbnail">
-                            <img src="img/bg-img/s1.jpg" alt />
+                            <img src="img/bg-img/s1.jpg" alt = "" />
                         </div>
                         <div className="song-play-area">
                             <div className="song-name">
@@ -357,7 +357,7 @@ export default class Lists extends Component{
                     <div className="col-12">
                         <div className="single-song-area mb-30 d-flex flex-wrap align-items-end">
                         <div className="song-thumbnail">
-                            <img src="img/bg-img/s2.jpg" alt />
+                            <img src="img/bg-img/s2.jpg" alt = "" />
                         </div>
                         <div className="song-play-area">
                             <div className="song-name">
@@ -373,7 +373,7 @@ export default class Lists extends Component{
                     <div className="col-12">
                         <div className="single-song-area mb-30 d-flex flex-wrap align-items-end">
                         <div className="song-thumbnail">
-                            <img src="img/bg-img/s3.jpg" alt />
+                            <img src="img/bg-img/s3.jpg" alt = "" />
                         </div>
                         <div className="song-play-area">
                             <div className="song-name">
@@ -389,7 +389,7 @@ export default class Lists extends Component{
                     <div className="col-12">
                         <div className="single-song-area mb-30 d-flex flex-wrap align-items-end">
                         <div className="song-thumbnail">
-                            <img src="img/bg-img/s4.jpg" alt />
+                            <img src="img/bg-img/s4.jpg" alt = "" />
                         </div>
                         <div className="song-play-area">
                             <div className="song-name">

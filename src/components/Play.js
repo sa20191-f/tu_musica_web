@@ -20,7 +20,7 @@ export default class Play extends Component{
                     <div className="row align-items-end">
                         <div className="col-12 col-md-5 col-lg-4">
                         <div className="featured-artist-thumb">
-                            <img src="img/bg-img/fa.jpg" alt="" />
+                            <img src="img/bg-img/fa.jpg" alt = "" />
                         </div>
                         </div>
                         <div className="col-12 col-md-7 col-lg-8">
@@ -58,7 +58,7 @@ export default class Play extends Component{
                             {/* Single Top Item */}
                             <div className="single-top-item d-flex wow fadeInUp" data-wow-delay="100ms">
                             <div className="thumbnail">
-                                <img src="img/bg-img/wt1.jpg" alt />
+                                <img src="img/bg-img/wt1.jpg" alt = "" />
                             </div>
                             <div className="content-">
                                 <h6>Sam Smith</h6>
@@ -68,7 +68,7 @@ export default class Play extends Component{
                             {/* Single Top Item */}
                             <div className="single-top-item d-flex wow fadeInUp" data-wow-delay="150ms">
                             <div className="thumbnail">
-                                <img src="img/bg-img/wt2.jpg" alt />
+                                <img src="img/bg-img/wt2.jpg" alt = "" />
                             </div>
                             <div className="content-">
                                 <h6>Power Play</h6>
@@ -78,7 +78,7 @@ export default class Play extends Component{
                             {/* Single Top Item */}
                             <div className="single-top-item d-flex wow fadeInUp" data-wow-delay="200ms">
                             <div className="thumbnail">
-                                <img src="img/bg-img/wt3.jpg" alt />
+                                <img src="img/bg-img/wt3.jpg" alt = "" />
                             </div>
                             <div className="content-">
                                 <h6>Cristinne Smith</h6>
@@ -88,7 +88,7 @@ export default class Play extends Component{
                             {/* Single Top Item */}
                             <div className="single-top-item d-flex wow fadeInUp" data-wow-delay="250ms">
                             <div className="thumbnail">
-                                <img src="img/bg-img/wt4.jpg" alt />
+                                <img src="img/bg-img/wt4.jpg" alt = "" />
                             </div>
                             <div className="content-">
                                 <h6>The Music Band</h6>
@@ -98,7 +98,7 @@ export default class Play extends Component{
                             {/* Single Top Item */}
                             <div className="single-top-item d-flex wow fadeInUp" data-wow-delay="300ms">
                             <div className="thumbnail">
-                                <img src="img/bg-img/wt5.jpg" alt />
+                                <img src="img/bg-img/wt5.jpg" alt = "" />
                             </div>
                             <div className="content-">
                                 <h6>Creative Lyrics</h6>
@@ -108,7 +108,7 @@ export default class Play extends Component{
                             {/* Single Top Item */}
                             <div className="single-top-item d-flex wow fadeInUp" data-wow-delay="350ms">
                             <div className="thumbnail">
-                                <img src="img/bg-img/wt6.jpg" alt />
+                                <img src="img/bg-img/wt6.jpg" alt = "" />
                             </div>
                             <div className="content-">
                                 <h6>The Culture</h6>
@@ -128,7 +128,7 @@ export default class Play extends Component{
                             <div className="single-new-item d-flex align-items-center justify-content-between wow fadeInUp" data-wow-delay="100ms">
                             <div className="first-part d-flex align-items-center">
                                 <div className="thumbnail">
-                                <img src="img/bg-img/wt7.jpg" alt />
+                                <img src="img/bg-img/wt7.jpg" alt = "" />
                                 </div>
                                 <div className="content-">
                                 <h6>Sam Smith</h6>
@@ -143,7 +143,7 @@ export default class Play extends Component{
                             <div className="single-new-item d-flex align-items-center justify-content-between wow fadeInUp" data-wow-delay="150ms">
                             <div className="first-part d-flex align-items-center">
                                 <div className="thumbnail">
-                                <img src="img/bg-img/wt8.jpg" alt />
+                                <img src="img/bg-img/wt8.jpg" alt = "" />
                                 </div>
                                 <div className="content-">
                                 <h6>Power Play</h6>
@@ -158,7 +158,7 @@ export default class Play extends Component{
                             <div className="single-new-item d-flex align-items-center justify-content-between wow fadeInUp" data-wow-delay="200ms">
                             <div className="first-part d-flex align-items-center">
                                 <div className="thumbnail">
-                                <img src="img/bg-img/wt9.jpg" alt />
+                                <img src="img/bg-img/wt9.jpg" alt = "" />
                                 </div>
                                 <div className="content-">
                                 <h6>Cristinne Smith</h6>
@@ -173,7 +173,7 @@ export default class Play extends Component{
                             <div className="single-new-item d-flex align-items-center justify-content-between wow fadeInUp" data-wow-delay="250ms">
                             <div className="first-part d-flex align-items-center">
                                 <div className="thumbnail">
-                                <img src="img/bg-img/wt10.jpg" alt />
+                                <img src="img/bg-img/wt10.jpg" alt = "" />
                                 </div>
                                 <div className="content-">
                                 <h6>The Music Band</h6>
@@ -188,7 +188,7 @@ export default class Play extends Component{
                             <div className="single-new-item d-flex align-items-center justify-content-between wow fadeInUp" data-wow-delay="300ms">
                             <div className="first-part d-flex align-items-center">
                                 <div className="thumbnail">
-                                <img src="img/bg-img/wt11.jpg" alt />
+                                <img src="img/bg-img/wt11.jpg" alt = "" />
                                 </div>
                                 <div className="content-">
                                 <h6>Creative Lyrics</h6>
@@ -203,7 +203,7 @@ export default class Play extends Component{
                             <div className="single-new-item d-flex align-items-center justify-content-between wow fadeInUp" data-wow-delay="350ms">
                             <div className="first-part d-flex align-items-center">
                                 <div className="thumbnail">
-                                <img src="img/bg-img/wt12.jpg" alt />
+                                <img src="img/bg-img/wt12.jpg" alt = "" />
                                 </div>
                                 <div className="content-">
                                 <h6>The Culture</h6>
@@ -226,7 +226,7 @@ export default class Play extends Component{
                             {/* Single Artist */}
                             <div className="single-artists d-flex align-items-center wow fadeInUp" data-wow-delay="100ms">
                             <div className="thumbnail">
-                                <img src="img/bg-img/pa1.jpg" alt />
+                                <img src="img/bg-img/pa1.jpg" alt = "" />
                             </div>
                             <div className="content-">
                                 <p>Sam Smith</p>
@@ -235,7 +235,7 @@ export default class Play extends Component{
                             {/* Single Artist */}
                             <div className="single-artists d-flex align-items-center wow fadeInUp" data-wow-delay="150ms">
                             <div className="thumbnail">
-                                <img src="img/bg-img/pa2.jpg" alt />
+                                <img src="img/bg-img/pa2.jpg" alt = "" />
                             </div>
                             <div className="content-">
                                 <p>William Parker</p>
@@ -244,7 +244,7 @@ export default class Play extends Component{
                             {/* Single Artist */}
                             <div className="single-artists d-flex align-items-center wow fadeInUp" data-wow-delay="200ms">
                             <div className="thumbnail">
-                                <img src="img/bg-img/pa3.jpg" alt />
+                                <img src="img/bg-img/pa3.jpg" alt = "" />
                             </div>
                             <div className="content-">
                                 <p>Jessica Walsh</p>
@@ -253,7 +253,7 @@ export default class Play extends Component{
                             {/* Single Artist */}
                             <div className="single-artists d-flex align-items-center wow fadeInUp" data-wow-delay="250ms">
                             <div className="thumbnail">
-                                <img src="img/bg-img/pa4.jpg" alt />
+                                <img src="img/bg-img/pa4.jpg" alt = "" />
                             </div>
                             <div className="content-">
                                 <p>Tha Stoves</p>
@@ -262,7 +262,7 @@ export default class Play extends Component{
                             {/* Single Artist */}
                             <div className="single-artists d-flex align-items-center wow fadeInUp" data-wow-delay="300ms">
                             <div className="thumbnail">
-                                <img src="img/bg-img/pa5.jpg" alt />
+                                <img src="img/bg-img/pa5.jpg" alt = "" />
                             </div>
                             <div className="content-">
                                 <p>DJ Ajay</p>
@@ -271,7 +271,7 @@ export default class Play extends Component{
                             {/* Single Artist */}
                             <div className="single-artists d-flex align-items-center wow fadeInUp" data-wow-delay="350ms">
                             <div className="thumbnail">
-                                <img src="img/bg-img/pa6.jpg" alt />
+                                <img src="img/bg-img/pa6.jpg" alt = "" />
                             </div>
                             <div className="content-">
                                 <p>Radio Vibez</p>
@@ -280,7 +280,7 @@ export default class Play extends Component{
                             {/* Single Artist */}
                             <div className="single-artists d-flex align-items-center wow fadeInUp" data-wow-delay="400ms">
                             <div className="thumbnail">
-                                <img src="img/bg-img/pa7.jpg" alt />
+                                <img src="img/bg-img/pa7.jpg" alt = "" />
                             </div>
                             <div className="content-">
                                 <p>Music 4u</p>

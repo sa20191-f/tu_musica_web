@@ -9,14 +9,7 @@ export default class Menu extends Component{
         return( 
 
             <div>
-                <div className="preloader d-flex align-items-center justify-content-center">
-                    <div className="lds-ellipsis">
-                        <div />
-                        <div />
-                        <div />
-                        <div />
-                    </div>
-                </div>
+                
                 <header className="header-area">
                     {/* Navbar Area */}
                     <div className="oneMusic-main-menu">
@@ -41,18 +34,14 @@ export default class Menu extends Component{
                                 <div className="classynav">
                                 <ul>
                                     <li><Link to='/'>Inicio</Link></li>
+                                    <li><Link to='/play'>Escucha</Link></li>
                                     <li><Link to='/lists'>Tu Lista</Link></li>
-                                    <li><a href="#">Pages</a>
-                                    </li>
-                                    <li><a href="event.html">Events</a></li>
-                                    <li><a href="blog.html">News</a></li>
-                                    <li><a href="contact.html">Contact</a></li>
                                 </ul>
                                 {/* Login/Register & Cart Button */}
                                 <div className="login-register-cart-button d-flex align-items-center">
                                     {/* Login/Register */}
                                     <div className="login-register-btn mr-50">
-                                    <a href="login.html" id="loginBtn">Perfil</a>
+                                     <Link to='/profile'id="loginBtn">Tu Perfil</Link>
                                     </div>
                                 </div>
                                 </div>
