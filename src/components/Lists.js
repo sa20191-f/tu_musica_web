@@ -1,8 +1,45 @@
 import React, { Component } from 'react'
 import Menu from './Menu'
 import Footer from './Footer'
+import ApolloClient from 'apollo-boost';
+import gql from "graphql-tag";
+
+import baseURL from "../url"
+const client = new ApolloClient({
+  uri: `${baseURL}`
+});
 
 export default class Lists extends Component{
+    constructor() {
+		super()
+		//this.state = { data_a: [] , count: 1}
+		client.query({
+      query: gql`
+      query{
+        allList{
+          id
+          name
+		  image
+          list_vinculations{
+            id
+            user_id
+          }
+          song_vinculations{
+            id
+            song_id
+          }      
+        }
+    }`
+    })
+    .then(data => {
+      console.log(data.data.allList)
+      //this.setState({ data_a: data.data.allResources})
+    })
+	.catch(error => console.error(error));
+	//this.handleCountClick = this.handleCountClick.bind(this);
+
+
+	}
     
 
     render(){
