@@ -5,6 +5,7 @@ import Lists from './Lists'
 import Login from './Login'
 import Signup from './SignUp'
 import Profile from './Profile'
+import Upsong from './Upsong'
 
 //import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
@@ -25,6 +26,7 @@ export default class Router extends Component{
                     <Route exact path="/login" component={Login} />
                     <Route exact path="/signup" component={Signup} />
                     <Route exact path="/profile" component={Profile} />
+                    <Route exact path="/upsong" component={Upsong} />
                 </Switch>
 
                 </div>

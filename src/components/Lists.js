@@ -12,7 +12,7 @@ const client = new ApolloClient({
 export default class Lists extends Component{
     constructor() {
 		super()
-		//this.state = { data_a: [] , count: 1}
+		this.state = { data_a: []}
 		client.query({
       query: gql`
       query{
@@ -33,7 +33,7 @@ export default class Lists extends Component{
     })
     .then(data => {
       console.log(data.data.allList)
-      //this.setState({ data_a: data.data.allResources})
+      this.setState({ data_a: data.data.allList})
     })
 	.catch(error => console.error(error));
 	//this.handleCountClick = this.handleCountClick.bind(this);

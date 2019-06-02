@@ -35,6 +35,7 @@ export default class Menu extends Component{
                                 <ul>
                                     <li><Link to='/'>Inicio</Link></li>
                                     <li><Link to='/play'>Escucha</Link></li>
+                                    <li><Link to='/upsong'>Subir canción</Link></li>
                                     <li><Link to='/lists'>Tu Lista</Link></li>
                                 </ul>
                                 {/* Login/Register & Cart Button */}
