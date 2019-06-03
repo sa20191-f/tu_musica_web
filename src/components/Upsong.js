@@ -12,7 +12,7 @@ export default class Upsong extends Component{
             <div>
                 <Menu/>
                 {/* ##### Miscellaneous Area Start ##### */}
-                <section className="miscellaneous-area section-padding-100-0">
+                <section className="featured-artist-area section-padding-100 bg-img bg-overlay bg-fixed" style={{backgroundImage: 'url(img/bg-img/bg-4.jpg)'}}>
                     <div className="container">
                     <div className="row">
                         {/* ***** Weeks Top ***** */}
