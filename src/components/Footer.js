@@ -22,10 +22,9 @@ export default class Lists extends Component{
                             <div className="footer-nav">
                             <ul>
                                 <li><Link to='/'>Inicio</Link></li>
+                                <li><Link to='/play'>Escucha</Link></li>
                                 <li><Link to='/lists'>Tu Lista</Link></li>
-                                <li><a href="#">Events</a></li>
-                                <li><a href="#">News</a></li>
-                                <li><a href="#">Contact</a></li>
+                                <li><Link to='/profile'id="loginBtn">Tu Perfil</Link></li>
                             </ul>
                             </div>
                         </div>
