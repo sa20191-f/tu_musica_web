@@ -1,4 +1,14 @@
 import React, { Component } from 'react'
+import {
+    MDBContainer,
+    MDBRow,
+    MDBCol,
+    MDBBtn,
+    MDBIcon,
+    View,
+    MDBView
+  } from "mdbreact";
+import swal from 'sweetalert2'
 import Menu from './Menu'
 import Footer from './Footer'
 import ApolloClient from 'apollo-boost';
@@ -12,7 +22,7 @@ const client = new ApolloClient({
 export default class Lists extends Component{
     constructor() {
 		super()
-		this.state = { data_a: []}
+		this.state = { listas: [],name: "",image: "",user_id: 1}
 		client.query({
       query: gql`
       query{
@@ -32,30 +42,145 @@ export default class Lists extends Component{
     }`
     })
     .then(data => {
-      console.log(data.data.allList)
-      this.setState({ data_a: data.data.allList})
+     console.log(data.data.allList)
+     this.setState({ listas: data.data.allList})
     })
 	.catch(error => console.error(error));
 	//this.handleCountClick = this.handleCountClick.bind(this);
 
 
-	}
+    }
+
+    onSubmit = e => {
+        e.preventDefault();
     
+        console.log("Espichaste el botón");
+
+        if((this.state.name === "") || (this.state.user_id === "")){
+                swal.fire("Digite los campos señalados",'','error'); 
+        }else{
+        console.log("nombre "+this.state.name);
+        console.log("imagen "+this.state.image);
+        console.log(this.state.user_id);
+        client.mutate({
+        mutation: gql`
+        mutation{
+            createList(list:{
+            name: "${this.state.name}"
+            image: "${this.state.image}"
+            user_id: "${this.state.user_id}"
+            }){
+            name
+            image
+            user_id
+            }
+        }`
+        })
+        .then(data => {
+        console.log(data.data);
+        swal("has creado tu lista exitosamente",'','success');
+        })
+        .catch(error => {console.error(error)});
+        }
+
+      };
+    
+    setField(e) {
+        console.log(this.state.name);
+        console.log(this.state.image);
+
+        if(e.target.id === 'nombre'){
+            this.setState({
+              name: e.target.value
+            })
+            }
+            if(e.target.id === 'image'){
+            this.setState({
+              image: e.target.value
+            })
+            }
+            
+      }
 
     render(){
+
         
         return(
             <div>
                 <Menu/>
+                
                 {/* ##### Breadcumb Area Start ##### */}
                 <section className="breadcumb-area bg-img bg-overlay" style={{backgroundImage: 'url(img/bg-img/breadcumb3.jpg)'}}>
                 <div className="bradcumbContent">
                     <p>See what’s new</p>
-                    <h2>Latest Albums</h2>
+                    <h2>Tus Listas</h2>
                 </div>
                 </section>
                 {/* ##### Breadcumb Area End ##### */}
                 {/* ##### Album Catagory Area Start ##### */}
+                <MDBContainer
+                    style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center"
+                    }}
+                    >
+                    <MDBRow>
+                        <MDBCol md="12">
+                        <form>
+                            <p className="h4 text-center py-4">Crear Lista</p>
+                            <label
+                            htmlFor="defaultFormCardNameEx"
+                            className="grey-text font-weight-light"
+                            >
+                            Nombre
+                            </label>
+                            <input
+                            type="text"
+                            id="nombre"
+                            className="form-control"
+                            onChange={e => this.setField(e)}
+                            />
+                            <br />
+                            <label
+                            htmlFor="defaultFormCardNameEx"
+                            className="grey-text font-weight-light"
+                            >
+                            Url imagen
+                            </label>
+                            <input
+                            type="text"
+                            id="image"
+                            className="form-control"
+                            onChange={e => this.setField(e)}
+                            />
+                            <br />
+                            <label
+                            htmlFor="defaultFormCardEmailEx"
+                            className="grey-text font-weight-light"
+                            >
+                            Elije un archivo
+                            </label>
+                            <input
+                            type="file"
+                            id="defaultFormCardEmailEx"
+                            className="form-control"
+                            onChange={this.onChange}
+                            />
+                            <div className="text-center py-4 mt-3">
+                            <MDBBtn
+                                className="btn btn-outline-purple"
+                                type="submit"
+                                onClick={this.onSubmit}
+                            >
+                                Enviar
+                                <MDBIcon icon="paper-plane-o" className="ml-2" />
+                            </MDBBtn>
+                            </div>
+                        </form>
+                        </MDBCol>
+                    </MDBRow>
+                </MDBContainer>
                 <section className="album-catagory section-padding-100-0">
                 <div className="container">
                     <div className="row">
@@ -93,150 +218,28 @@ export default class Lists extends Component{
                     </div>
                     </div>
                     <div className="row oneMusic-albums">
-                    {/* Single Album */}
-                    <div className="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t c p">
-                        <div className="single-album">
-                        <img src="img/bg-img/a1.jpg" alt = ""  />
-                        <div className="album-info">
-                            <a href="#">
-                            <h5>The Cure</h5>
-                            </a>
-                            <p>Second Song</p>
-                        </div>
-                        </div>
-                    </div>
-                    {/* Single Album */}
-                    <div className="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item s e q">
-                        <div className="single-album">
-                        <img src="img/bg-img/a2.jpg" alt = "" />
-                        <div className="album-info">
-                            <a href="#">
-                            <h5>Sam Smith</h5>
-                            </a>
-                            <p>Underground</p>
-                        </div>
-                        </div>
-                    </div>
-                    {/* Single Album */}
-                    <div className="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item w f r">
-                        <div className="single-album">
-                        <img src="img/bg-img/a3.jpg" alt = "" />
-                        <div className="album-info">
-                            <a href="#">
-                            <h5>Will I am</h5>
-                            </a>
-                            <p>First</p>
-                        </div>
-                        </div>
-                    </div>
-                    {/* Single Album */}
-                    <div className="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t g u">
-                        <div className="single-album">
-                        <img src="img/bg-img/a4.jpg" alt = "" />
-                        <div className="album-info">
-                            <a href="#">
-                            <h5>The Cure</h5>
-                            </a>
-                            <p>Second Song</p>
-                        </div>
-                        </div>
-                    </div>
-                    {/* Single Album */}
-                    <div className="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item d h v">
-                        <div className="single-album">
-                        <img src="img/bg-img/a5.jpg" alt = "" />
-                        <div className="album-info">
-                            <a href="#">
-                            <h5>DJ SMITH</h5>
-                            </a>
-                            <p>The Album</p>
-                        </div>
-                        </div>
-                    </div>
-                    {/* Single Album */}
-                    <div className="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t i x">
-                        <div className="single-album">
-                        <img src="img/bg-img/a6.jpg" alt = "" />
-                        <div className="album-info">
-                            <a href="#">
-                            <h5>The Ustopable</h5>
-                            </a>
-                            <p>Unplugged</p>
-                        </div>
-                        </div>
-                    </div>
-                    {/* Single Album */}
-                    <div className="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item b j y">
-                        <div className="single-album">
-                        <img src="img/bg-img/a7.jpg" alt = "" />
-                        <div className="album-info">
-                            <a href="#">
-                            <h5>Beyonce</h5>
-                            </a>
-                            <p>Songs</p>
-                        </div>
-                        </div>
-                    </div>
-                    {/* Single Album */}
-                    <div className="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item a k z">
-                        <div className="single-album">
-                        <img src="img/bg-img/a8.jpg" alt = "" />
-                        <div className="album-info">
-                            <a href="#">
-                            <h5>Aam Smith</h5>
-                            </a>
-                            <p>Underground</p>
-                        </div>
-                        </div>
-                    </div>
-                    {/* Single Album */}
-                    <div className="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item w l number">
-                        <div className="single-album">
-                        <img src="img/bg-img/a9.jpg" alt = "" />
-                        <div className="album-info">
-                            <a href="#">
-                            <h5>Will I am</h5>
-                            </a>
-                            <p>First</p>
-                        </div>
-                        </div>
-                    </div>
-                    {/* Single Album */}
-                    <div className="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item d m">
-                        <div className="single-album">
-                        <img src="img/bg-img/a10.jpg" alt = "" />
-                        <div className="album-info">
-                            <a href="#">
-                            <h5>DJ SMITH</h5>
-                            </a>
-                            <p>The Album</p>
-                        </div>
-                        </div>
-                    </div>
-                    {/* Single Album */}
-                    <div className="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t n">
-                        <div className="single-album">
-                        <img src="img/bg-img/a11.jpg" alt = "" />
-                        <div className="album-info">
-                            <a href="#">
-                            <h5>The Ustopable</h5>
-                            </a>
-                            <p>Unplugged</p>
-                        </div>
-                        </div>
-                    </div>
-                    {/* Single Album */}
-                    <div className="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item b o">
-                        <div className="single-album">
-                        <img src="img/bg-img/a12.jpg" alt = "" />
-                        <div className="album-info">
-                            <a href="#">
-                            <h5>Beyonce</h5>
-                            </a>
-                            <p>Songs</p>
-                        </div>
-                        </div>
-                    </div>
+                    <ul>
+                    {this.state.listas.map((lista) => {
+                                        return (
+                                            
+                                            <li key={lista.id}>
+                                                {/*console.log(lista.name)*/}
+                                                <div className="col-12 col-sm-4 col-md-3 col-lg-2 single-album-item t c p">
+                                                    <div className="single-album">
+                                                    <img src={lista.image} width="100" height="100"  />
+                                                    <div className="album-info">
+                                                        <a href="#">
+                                                        <h5>{lista.name}</h5>
+                                                        </a>
+                                                        <p>Second Song</p>
+                                                    </div>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                            
+                                        )
+                                    })}
+                    </ul>
                     </div>
                 </div>
                 </section>
