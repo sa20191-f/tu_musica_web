@@ -1,0 +1,8 @@
+version: "2"
+services:
+  tu-musica-web:
+    build: .
+    container_name: tu-musica-web
+    image: tu-musica-web
+    ports:
+      - "4100:4100"
