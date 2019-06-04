@@ -28,7 +28,7 @@ export default class Start extends Component{
                                     <h2 data-animation="fadeInUp" data-delay="300ms">TU MUSICA <span>TU MUSICA</span></h2>
                                     
                                     <Link to='/play'>
-                                        <a data-animation="fadeInUp" data-delay="500ms" className="btn oneMusic-btn mt-50">Escucha <i className="fa fa-angle-double-right" /></a>
+                                        <button data-animation="fadeInUp" data-delay="500ms" className="btn oneMusic-btn mt-50">Escucha <i className="fa fa-angle-double-right" /></button>
                                     </Link>
                                     </div>
                                 </div>

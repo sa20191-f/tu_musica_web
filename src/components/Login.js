@@ -1,8 +1,79 @@
 import React, { Component } from 'react'
 import MenuLanding from './MenuLanding'
+import swal from 'sweetalert2'
+import ApolloClient from 'apollo-boost';
+import gql from "graphql-tag";
+import baseURLFront from '../urlFront';
+import baseURL from "../url"
+const client = new ApolloClient({
+  uri: `${baseURL}`
+});
 
 export default class Login extends Component{
-    
+    constructor() {
+        super();
+        this.state = { email: "", password: "", username: "", s_users: [], error: null};
+      }
+
+      setField (e) {
+        if(e.target.id === 'email'){
+          this.setState({
+            email: e.target.value
+          })
+          }
+          if(e.target.id === 'password'){
+          this.setState({
+            password: e.target.value
+          })
+          }
+          if(e.target.id === 'name'){
+            this.setState({
+              username: e.target.value
+          })
+          }
+        }
+
+        handleSubmit = (e) =>{
+            e.preventDefault()
+            console.log(this.state.name);
+            console.log(this.state.email);
+            console.log(this.state.password);
+            if((this.state.username === "") || (this.state.email === "") || (this.state.password === "")){
+              swal.fire("Digite los campos señalados",'','error'); 
+            }else{
+            client.mutate({
+             mutation: gql`
+             mutation {
+                loginUser(user: {
+                  username: "${this.state.username}"
+                  email: "${this.state.email}"
+                  password: "${this.state.password}"
+                }) {
+                  token
+                }
+              }
+             `
+           })
+           .then(data => {
+             console.log(data.data.loginUser.token)
+             localStorage.setItem("jwtToken", data.data.loginUser.token)
+             if(this.state.error === null){
+               setTimeout(function(){ window.location = `${baseURLFront}/`; },1000);
+               swal.fire({
+                 title:'Cargando...',
+                 text:'',
+                 timer:1000,
+                 onOpen: () =>{
+                   swal.showLoading()
+                 }
+               })
+               }
+           })
+           .catch(error => {console.error(error)
+             this.setState({error: "Email o contraseña incorrecta"})});
+         }
+        }
+
 
     render(){
         
@@ -29,18 +100,18 @@ export default class Login extends Component{
                             <form action="#" method="post">
                                 <div className="form-group">
                                         <label htmlFor="exampleInputEmail1">User</label>
-                                        <input type="text" className="form-control" id="exampleInputText" aria-describedby="textHelp" placeholder="Enter User" />
+                                        <input type="text" className="form-control" id="name" aria-describedby="textHelp" placeholder="Enter User" onChange={e => this.setField(e)}/>
                                 </div>
                                 <div className="form-group">
                                     <label htmlFor="exampleInputEmail1">Email address</label>
-                                    <input type="email" className="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter E-mail" />
+                                    <input type="email" className="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter E-mail" onChange={e => this.setField(e)}/>
                                     <small id="emailHelp" className="form-text text-muted"><i className="fa fa-lock mr-2" />We'll never share your email with anyone else.</small>
                                 </div>
                                 <div className="form-group">
                                     <label htmlFor="exampleInputPassword1">Password</label>
-                                    <input type="password" className="form-control" id="exampleInputPassword1" placeholder="Password" />
+                                    <input type="password" className="form-control" id="password" placeholder="Password" onChange={e => this.setField(e)}/>
                                 </div>
-                                <button type="submit" className="btn oneMusic-btn mt-30">Login</button>
+                                <button type="submit" onClick={this.handleSubmit} className="btn oneMusic-btn mt-30">Login</button>
                             </form>
                         </div>
                         </div>

@@ -9,14 +9,7 @@ export default class MenuLanding extends Component{
         return( 
 
             <div>
-                <div className="preloader d-flex align-items-center justify-content-center">
-                    <div className="lds-ellipsis">
-                        <div />
-                        <div />
-                        <div />
-                        <div />
-                    </div>
-                </div>
+
                 <header className="header-area">
                     {/* Navbar Area */}
                     <div className="oneMusic-main-menu">

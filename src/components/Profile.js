@@ -1,9 +1,22 @@
 import React, { Component } from 'react'
 import Menu from './Menu'
 import Footer from './Footer'
+import swal from 'sweetalert2'
+import baseURLFront from '../urlFront';
 
 export default class Profile extends Component{
-    
+
+    handleSubmit = (e) => {
+        e.preventDefault();
+        localStorage.removeItem('jwtToken')
+        swal.fire({
+            title: 'Vuelve pronto...', timer: 1000, showConfirmButton: false, onOpen: () => {
+                swal.showLoading()
+            }
+        });
+        setTimeout(function () { window.location = `${baseURLFront}/login`; }, 1000);
+    }
+
 
     render(){
         
@@ -50,6 +63,9 @@ export default class Profile extends Component{
                             </div>
                             <p>yourmail@gmail.com</p>
                         </div>
+                        <div className="oneMusic-buttons-area mb-100">
+                            <button onClick={this.handleSubmit} className="btn oneMusic-btn m-2">Logout <i className="fa fa-angle-double-right"></i></button>
+                         </div>
                         {/* Contact Social Info */}
                         <div className="contact-social-info mt-50">
                             <a href="#" data-toggle="tooltip" data-placement="top" title="Pinterest"><i className="fa fa-pinterest" aria-hidden="true" /></a>
