@@ -8,7 +8,7 @@ export default class Menu extends Component{
         
         return( 
 
-            <div>
+            <div >
                 
                 <header className="header-area">
                     {/* Navbar Area */}
@@ -34,7 +34,7 @@ export default class Menu extends Component{
                                 <div className="classynav">
                                 <ul>
                                     <li><Link to='/'>Inicio</Link></li>
-                                    <li><Link to='/play'>Escucha</Link></li>
+                                    <li><Link to='/songs'>Escucha</Link></li>
                                     <li><Link to='/upsong'>Subir canción</Link></li>
                                     <li><Link to='/lists'>Tu Lista</Link></li>
                                 </ul>

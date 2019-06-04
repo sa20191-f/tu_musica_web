@@ -2,12 +2,22 @@ import React, { Component } from 'react'
 import Menu from './Menu'
 import Footer from './Footer'
 
-
 export default class Play extends Component{
-    
+    state = {
+        song: ""
+      }
+    componentDidMount() {
+        console.log(this.props.location)
+        const url = 'http://192.168.99.101:3002/getfile/'+this.props.location.path
+        console.log(url)
+        this.setState({ song: url });
+        console.log(this.state)
+
+      }
+
 
     render(){
-        
+        console.log(this.state)
         return(
             
             <div>
@@ -20,7 +30,7 @@ export default class Play extends Component{
                     <div className="row align-items-end">
                         <div className="col-12 col-md-5 col-lg-4">
                         <div className="featured-artist-thumb">
-                            <img src="img/bg-img/fa.jpg" alt = "" />
+                            <img src="" alt = "nada" />
                         </div>
                         </div>
                         <div className="col-12 col-md-7 col-lg-8">
@@ -36,7 +46,7 @@ export default class Play extends Component{
                                 <p>01. Main Hit Song</p>
                             </div>
                             <audio preload="auto" controls>
-                                <source src="audio/dummy-audio.mp3" />
+                                <source src={this.state.song} />
                             </audio>
                             </div>
                         </div>
@@ -44,6 +54,7 @@ export default class Play extends Component{
                     </div>
                     </div>
                 </section>
+                
                 
                 <Footer/>
             </div>
