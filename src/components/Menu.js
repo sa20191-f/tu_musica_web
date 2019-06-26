@@ -38,6 +38,7 @@ export default class Menu extends Component{
                                     <li><Link to='/songs'>Escucha</Link></li>
                                     <li><Link to='/upsong'>Subir canción</Link></li>
                                     <li><Link to='/lists'>Tu Lista</Link></li>
+                                    <li><Link to='/videos'>videos</Link></li>
                                 </ul>
                                 {/* Login/Register & Cart Button */}
                                 <div className="login-register-cart-button d-flex align-items-center">

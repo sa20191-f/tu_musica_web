@@ -8,6 +8,7 @@ import Profile from './Profile'
 import Upsong from './Upsong'
 import AllSong from './AllSongs'
 import Playlist from './Playlist'
+import Videos from './Videos'
 
 //import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
@@ -31,6 +32,7 @@ export default class Router extends Component{
                     <Route exact path="/profile" component={Profile} />
                     <Route exact path="/upsong" component={Upsong} />
                     <Route exact path="/songs" component={AllSong} />
+                    <Route exact path="/videos" component={Videos} />
                     <Route path="/:id" component={Play} />
                 </Switch>
 
