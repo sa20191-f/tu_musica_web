@@ -16,6 +16,9 @@ export default class Login extends Component{
       }
 
       setField (e) {
+        console.log(this.state.username);
+        console.log(this.state.email);
+        console.log(this.state.password);
         if(e.target.id === 'email'){
           this.setState({
             email: e.target.value
@@ -35,9 +38,7 @@ export default class Login extends Component{
 
         handleSubmit = (e) =>{
             e.preventDefault()
-            console.log(this.state.name);
-            console.log(this.state.email);
-            console.log(this.state.password);
+            
             if((this.state.username === "") || (this.state.email === "") || (this.state.password === "")){
               swal.fire("Digite los campos señalados",'','error'); 
             }else{
