@@ -25,6 +25,33 @@ export default class Videos extends Component{
 		this.state = { name: "",link: ""}
 
     }
+    /*
+    componentDidMount() {
+        client.mutate({
+            mutation: gql`
+            mutation {
+                createFind(video: {
+                  title: "${this.state.name}"
+                }) {
+                      find_videos_response{
+                    titles
+                    links
+                    images
+                  }
+                }
+            }`
+    
+    
+            })
+            .then(data => {
+            console.log(data.data.createFind.find_videos_response.links);
+            this.state.link = data.data.createFind.find_videos_response.links
+            console.log("Respuesta: ", this.state.link);
+            swal.fire("Ha buscado correctamente",'','success');
+            setTimeout(function () {window.location.reload();}, 100000);
+            })
+            .catch(error => {console.error(error)});
+    }*/
 
     onSubmit = e => {
         e.preventDefault();
@@ -122,8 +149,8 @@ export default class Videos extends Component{
                     </MDBRow>
                 </MDBContainer>
 
-              
-
+                <h1>{this.state.link}</h1>
+                <a href={this.state.link}>{this.state.name}</a>    
                 <Footer/>
 
                 
