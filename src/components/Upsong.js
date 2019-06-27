@@ -45,7 +45,9 @@ const uploadOneFile = () => {
         <section className="breadcumb-area bg-img bg-overlay" style={{backgroundImage: 'url(img/bg-img/breadcumb3.jpg)'}}>
         <div className="bradcumbContent">
             <p>Share new music</p>
-            <h2>Upload a song!</h2>
+            <h2>Sube tus canciones</h2>
+            <br></br>
+            <br></br>
         </div>
         </section>
         {/* ##### Breadcumb Area End ##### */}
@@ -107,7 +109,14 @@ const uploadOneFile = () => {
                 </MDBCol>
             </MDBRow>
         </MDBContainer>
-        
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
+        <br></br>
         <Footer/>
     </div>
     
