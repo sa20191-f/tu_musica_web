@@ -3,26 +3,41 @@ import Menu from './Menu'
 import Footer from './Footer'
 import { Link } from 'react-router-dom';
 import { messaging } from "../init-fcm";
+import ApolloClient from 'apollo-boost';
+import gql from "graphql-tag";
 
+import baseURL from "../url"
+const client = new ApolloClient({
+  uri: `${baseURL}`
+});
 export default class Start extends Component{
     
     componentDidMount() {
-      const token = localStorage.getItem('jwtToken');
-      console.log(token);
+      const auth = localStorage.getItem('jwtToken');
       messaging.requestPermission()
       .then(async function() {
-        const token = await messaging.getToken();
-        console.log('My token');
-        console.log(token);
+        const tokenPush = await messaging.getToken();
+        console.log("Entre por aca");
+        console.log(auth);
+        if (auth) {
+          console.log('y por aca');
+          client.mutate({
+            mutation: gql`
+            mutation {
+              addToken(token: {
+                    userID: ${localStorage.getItem('userId')}
+                    tokenType: 2
+                    token: "${tokenPush}"
+                })
+            }`
+            }).then(() => console.log('Se registro esta ... ')).catch(e => console.log(e));
+        }
       })
       .catch(function(err) {
         console.log("Unable to get permission to notify.", err);
       });
       messaging.onMessage((payload) => console.log('Message received. ', payload));
-      navigator.serviceWorker.addEventListener("message", (message) => console.log(message));
-      /* if (token) {
-
-      } */
+      navigator.serviceWorker.addEventListener("message", (message) => alert(message));
     }
 
     render(){
