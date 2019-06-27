@@ -24,7 +24,7 @@ const client = new ApolloClient({
 export default class Lists extends Component{
     constructor() {
 		super()
-		this.state = { listas: [],name: "",image: "",user_id: 1}
+		this.state = { listas: [],name: "",image: "",user_id: 1,email:"correo@correo.com"}
 		client.query({
         query: gql`
         query{
@@ -32,6 +32,7 @@ export default class Lists extends Component{
             id
             name
             image
+            email
             list_vinculations{
                 id
                 user_id
@@ -71,8 +72,10 @@ export default class Lists extends Component{
                 name: "${this.state.name}"
                 image: "${this.state.image}"
                 user_id: ${this.state.user_id}
+                email: "${this.state.email}"
             }){
                 name
+                email
                 image
                 user_id
             }

@@ -17,7 +17,7 @@ export default class SignUp extends Component{
     }
     setField (e) {
 
-      console.log(this.state.name);
+      console.log(this.state.username);
       console.log(this.state.email);
       console.log(this.state.password);
         if(e.target.id === 'email1'){
