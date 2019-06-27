@@ -21,7 +21,7 @@ const uploadOneFile = () => {
     data.append("operations",operations)
     data.append('map','{ "0": ["variables.file"] }')
     data.append('0',file)
-    axios.post('http://192.168.99.101:5000/graphql',data,{
+    axios.post('http://172.20.10.8:5000/graphql',data,{
         headers: { 'Content-Type': 'multipart/form-data'  }
     } )
     

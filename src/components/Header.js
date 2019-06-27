@@ -2,9 +2,28 @@ import React, { Component } from 'react'
 import Menu from './Menu'
 import Footer from './Footer'
 import { Link } from 'react-router-dom';
+import { messaging } from "../init-fcm";
 
 export default class Start extends Component{
     
+    componentDidMount() {
+      const token = localStorage.getItem('jwtToken');
+      console.log(token);
+      messaging.requestPermission()
+      .then(async function() {
+        const token = await messaging.getToken();
+        console.log('My token');
+        console.log(token);
+      })
+      .catch(function(err) {
+        console.log("Unable to get permission to notify.", err);
+      });
+      messaging.onMessage((payload) => console.log('Message received. ', payload));
+      navigator.serviceWorker.addEventListener("message", (message) => console.log(message));
+      /* if (token) {
+
+      } */
+    }
 
     render(){
         

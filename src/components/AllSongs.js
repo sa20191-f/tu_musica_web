@@ -19,10 +19,10 @@ export default class AllSong extends Component{
               query: `
                 query {
                   songs {
-                    id
-                    path
-                    song_name
-                    artist
+                      id
+                      path
+                      song_name
+                      artist
                     }
                   }
                 `
