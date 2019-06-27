@@ -24,7 +24,7 @@ const client = new ApolloClient({
 export default class Lists extends Component{
     constructor() {
 		super()
-		this.state = { listas: [],name: "",image: "",user_id: 1,email:"correo@correo.com"}
+		this.state = { listas: [],name: "",image: "",user_id: localStorage.getItem('userId'),email:"correo@correo.com"}
 		client.query({
         query: gql`
         query{
@@ -51,7 +51,7 @@ export default class Lists extends Component{
         .catch(error => console.error(error));
         //this.handleCountClick = this.handleCountClick.bind(this);
 
-
+       console.log(this.state.user_id); 
     }
 
     onSubmit = e => {

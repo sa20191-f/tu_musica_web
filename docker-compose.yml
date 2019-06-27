@@ -6,3 +6,4 @@ services:
     image: tu-musica-web
     ports:
       - "4100:4100"
+    

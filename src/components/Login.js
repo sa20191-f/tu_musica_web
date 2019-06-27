@@ -50,14 +50,18 @@ export default class Login extends Component{
                   email: "${this.state.email}"
                   password: "${this.state.password}"
                 }) {
-                  token
+                  token  {
+                    token
+                  }
+                  id
                 }
               }
              `
            })
            .then(data => {
              console.log(data.data.loginUser.token)
-             localStorage.setItem("jwtToken", data.data.loginUser.token)
+             localStorage.setItem("jwtToken", data.data.loginUser.token);
+             localStorage.setItem("userId", data.data.loginUser.id)
              if(this.state.error === null){
                setTimeout(function(){ window.location = `${baseURLFront}/`; },1000);
                swal.fire({

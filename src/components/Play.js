@@ -8,7 +8,7 @@ export default class Play extends Component{
       }
     componentDidMount() {
         console.log(this.props.location)
-        const url = 'http://192.168.99.101:3002/getfile/'+this.props.location.path
+        const url = 'http://172.20.10.8:3002/getfile/'+this.props.location.path
         console.log(url)
         this.setState({ song: url });
         console.log(this.state)
