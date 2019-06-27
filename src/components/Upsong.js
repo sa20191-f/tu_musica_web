@@ -6,6 +6,11 @@ import ApolloClient from 'apollo-boost';
 import baseURL from "../url"
 import gql from 'graphql-tag'
 import { Mutation } from 'react-apollo'
+import {
+    MDBContainer,
+    MDBRow,
+    MDBCol
+  } from "mdbreact";
 
 const uploadOneFile = () => {
   let input
@@ -15,15 +20,20 @@ const uploadOneFile = () => {
   const upload= ()=>{
     let data= new FormData()
     let file =  document.getElementById('file_input').files[0]
-    console.log(file.name);
     let operations='{ "query": "mutation ($file: Upload!) { uploadSong(file:$file ) { filename } }", "variables": { "file": null } }'
-    console.log(operations)
     data.append("operations",operations)
     data.append('map','{ "0": ["variables.file"] }')
     data.append('0',file)
-    axios.post('http://192.168.99.101:5000/graphql',data,{
+    axios.post(baseURL,data,{
         headers: { 'Content-Type': 'multipart/form-data'  }
-    } )
+    } ).then(function (response) {
+        // handle success
+        console.log(response);
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      })
     
   }
     return (   
@@ -31,10 +41,25 @@ const uploadOneFile = () => {
         <div >
            <Menu height="200px"/> 
         </div>
-        
-        <div className="container">
-            <div className="row">
-            <form style={{paddingTop: 200 + 'px'}}>
+        {/* ##### Breadcumb Area Start ##### */}
+        <section className="breadcumb-area bg-img bg-overlay" style={{backgroundImage: 'url(img/bg-img/breadcumb3.jpg)'}}>
+        <div className="bradcumbContent">
+            <p>Share new music</p>
+            <h2>Upload a song!</h2>
+        </div>
+        </section>
+        {/* ##### Breadcumb Area End ##### */}
+        {/* ##### Album Catagory Area Start ##### */}
+        <MDBContainer
+            style={{
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center"
+            }}
+            >
+            <MDBRow>
+                <MDBCol md="12">
+                <form>
             <div class="form-group">
                 <label for="exampleInputEmail1">Song name</label>
                 <input
@@ -79,9 +104,10 @@ const uploadOneFile = () => {
             
             
             </form>
-            </div>
-            
-       </div>
+                </MDBCol>
+            </MDBRow>
+        </MDBContainer>
+        
         <Footer/>
     </div>
     
