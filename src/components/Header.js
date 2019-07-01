@@ -6,6 +6,7 @@ import { messaging } from "../init-fcm";
 import ApolloClient from 'apollo-boost';
 import gql from "graphql-tag";
 import store from "../store";
+import swal from 'sweetalert2'
 
 import baseURL from "../url"
 const client = new ApolloClient({

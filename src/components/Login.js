@@ -55,24 +55,24 @@ export default class Login extends Component{
                   }
                 `
               })
-            .then(data => {
-              localStorage.setItem("jwtToken", data.data.loginUser.token.token);
-              localStorage.setItem("userId", data.data.loginUser.id);
-              if(this.state.error === null) {
-                setTimeout(function(){ window.location = `${baseURLFront}/`; },1000);
-                swal.fire({
-                  title:'Cargando...',
-                  text:'',
-                  timer:1000,
-                  onOpen: () =>{
-                    swal.showLoading()
-                  }
-                })
-                }
-            })
-            .catch(error => {console.error(error)
-              this.setState({error: "Email o contraseña incorrecta"})});
-          }
+           .then(data => {
+             console.log(data.data.loginUser.token)
+             localStorage.setItem("jwtToken", data.data.loginUser.token.token);
+             if(this.state.error === null){
+               setTimeout(function(){ window.location = `${baseURLFront}/`; },1000);
+               swal.fire({
+                 title:'Cargando...',
+                 text:'',
+                 timer:1000,
+                 onOpen: () =>{
+                   swal.showLoading()
+                 }
+               })
+               }
+           })
+           .catch(error => {console.error(error)
+             this.setState({error: "Email o contraseña incorrecta"})});
+         }
         }
 
 
