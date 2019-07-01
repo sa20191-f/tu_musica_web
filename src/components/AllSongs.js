@@ -58,8 +58,8 @@ export default class AllSong extends Component{
                                 <img src="img/bg-img/wt1.jpg" alt = "" />
                             </div>
                             <div className="content-">
-                                <h6>{person.artist}</h6>
-                                <p>Underground</p>
+                                <h6>{person.song_name}</h6>
+                                <p>{person.artist}</p>
                                 <ul>
                                     <li><Link to={{
                                         pathname: '/'+person.id,

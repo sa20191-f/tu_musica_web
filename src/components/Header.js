@@ -18,10 +18,9 @@ export default class Start extends Component{
       messaging.requestPermission()
       .then(async function() {
         const tokenPush = await messaging.getToken();
-        console.log("Entre por aca");
-        console.log(auth);
         if (auth) {
-          console.log('y por aca');
+          console.log(localStorage.getItem('userId'));
+          console.log(tokenPush);
           client.mutate({
             mutation: gql`
             mutation {
@@ -37,8 +36,11 @@ export default class Start extends Component{
       .catch(function(err) {
         console.log("Unable to get permission to notify.", err);
       });
-      messaging.onMessage((payload) => console.log('Message received. ', payload));
-      navigator.serviceWorker.addEventListener("message", (message) => alert(message));
+      messaging.onMessage((payload) => swal.fire(payload.data.message,'','success'));
+      navigator.serviceWorker.addEventListener("message", (message) => {
+        console.log("Message");
+        console.log(message);
+      });
     }
 
     render(){

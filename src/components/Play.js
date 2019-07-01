@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import Menu from './Menu'
 import Footer from './Footer'
+import baseURLFiles from './../urlFiles'
 
 export default class Play extends Component{
     state = {
@@ -8,7 +9,7 @@ export default class Play extends Component{
       }
     componentDidMount() {
         console.log(this.props.location)
-        const url = 'http://34.66.226.238:3002/getfile/'+this.props.location.path
+        const url = `${baseURLFiles}/getfile/${this.props.location.path}`
         console.log(url)
         this.setState({ song: url });
         console.log(this.state)
@@ -30,7 +31,7 @@ export default class Play extends Component{
                     <div className="row align-items-end">
                         <div className="col-12 col-md-5 col-lg-4">
                         <div className="featured-artist-thumb">
-                            <img src="" alt = "nada" />
+                            
                         </div>
                         </div>
                         <div className="col-12 col-md-7 col-lg-8">

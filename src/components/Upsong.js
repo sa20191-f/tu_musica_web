@@ -4,13 +4,19 @@ import Footer from './Footer'
 import axios from 'axios';
 import ApolloClient from 'apollo-boost';
 import baseURL from "../url"
+import baseURLFiles from "../urlFiles"
 import gql from 'graphql-tag'
 import { Mutation } from 'react-apollo'
+import swal from 'sweetalert2'
 import {
     MDBContainer,
     MDBRow,
     MDBCol
   } from "mdbreact";
+
+  const client = new ApolloClient({
+    uri: `${baseURL}`
+  });
 
 const uploadOneFile = () => {
   let input
@@ -20,15 +26,37 @@ const uploadOneFile = () => {
   const upload= ()=>{
     let data= new FormData()
     let file =  document.getElementById('file_input').files[0]
-    let operations='{ "query": "mutation ($file: Upload!) { uploadSong(file:$file ) { filename } }", "variables": { "file": null } }'
-    data.append("operations",operations)
-    data.append('map','{ "0": ["variables.file"] }')
-    data.append('0',file)
-    axios.post(baseURL,data,{
+    let name = document.getElementById('name').value
+    let artist = document.getElementById('artist').value
+    data.append('myFile',file)
+    swal.fire("Uploading ...!", {
+        button: false,
+        closeOnClickOutside: false,
+      });
+    axios.post(`${baseURLFiles}/upload_song`,data,{
         headers: { 'Content-Type': 'multipart/form-data'  }
     } ).then(function (response) {
         // handle success
-        console.log(response);
+        //console.log(response);
+        client.mutate({
+            mutation: gql`
+            mutation{
+                uploadInfoSong(infoSong: {
+                    song_name: "${name}"
+                    artist: "${artist}"
+                    path: "${response.data.filename}"                
+                }){
+                    song_name
+                    artist
+                }
+            }`
+            })
+            .then(data => {
+            console.log(data.data);
+            swal.fire("The song has been uploaded",'','success');
+            setTimeout(function () {window.location.reload();}, 2000);
+            })
+            .catch(error => {console.error(error)});
       })
       .catch(function (error) {
         // handle error

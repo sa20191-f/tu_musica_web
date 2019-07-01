@@ -16,9 +16,6 @@ export default class Login extends Component{
       }
 
       setField (e) {
-        console.log(this.state.username);
-        console.log(this.state.email);
-        console.log(this.state.password);
         if(e.target.id === 'email'){
           this.setState({
             email: e.target.value
@@ -42,40 +39,40 @@ export default class Login extends Component{
             if((this.state.username === "") || (this.state.email === "") || (this.state.password === "")){
               swal.fire("Digite los campos señalados",'','error'); 
             }else{
-            client.mutate({
-             mutation: gql`
-             mutation {
-                loginUser(user: {
-                  username: "${this.state.username}"
-                  email: "${this.state.email}"
-                  password: "${this.state.password}"
-                }) {
-                  token  {
-                    token
+              client.mutate({
+                mutation: gql`
+                mutation {
+                    loginUser(user: {
+                      username: "${this.state.username}"
+                      email: "${this.state.email}"
+                      password: "${this.state.password}"
+                    }) {
+                      token  {
+                        token
+                      }
+                      id
+                    }
                   }
-                  id
+                `
+              })
+            .then(data => {
+              localStorage.setItem("jwtToken", data.data.loginUser.token.token);
+              localStorage.setItem("userId", data.data.loginUser.id);
+              if(this.state.error === null) {
+                setTimeout(function(){ window.location = `${baseURLFront}/`; },1000);
+                swal.fire({
+                  title:'Cargando...',
+                  text:'',
+                  timer:1000,
+                  onOpen: () =>{
+                    swal.showLoading()
+                  }
+                })
                 }
-              }
-             `
-           })
-           .then(data => {
-             console.log(data.data.loginUser.token)
-             localStorage.setItem("jwtToken", data.data.loginUser.token.token);
-             if(this.state.error === null){
-               setTimeout(function(){ window.location = `${baseURLFront}/`; },1000);
-               swal.fire({
-                 title:'Cargando...',
-                 text:'',
-                 timer:1000,
-                 onOpen: () =>{
-                   swal.showLoading()
-                 }
-               })
-               }
-           })
-           .catch(error => {console.error(error)
-             this.setState({error: "Email o contraseña incorrecta"})});
-         }
+            })
+            .catch(error => {console.error(error)
+              this.setState({error: "Email o contraseña incorrecta"})});
+          }
         }
 
 
