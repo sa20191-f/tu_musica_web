@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { messaging } from "../init-fcm";
 import ApolloClient from 'apollo-boost';
 import gql from "graphql-tag";
+import swal from 'sweetalert2'
 
 import baseURL from "../url"
 const client = new ApolloClient({
@@ -14,21 +15,21 @@ export default class Start extends Component{
     
     componentDidMount() {
       const auth = localStorage.getItem('jwtToken');
+      console.log(auth);
       messaging.requestPermission()
       .then(async function() {
         const tokenPush = await messaging.getToken();
-        console.log("Entre por aca");
-        console.log(auth);
         if (auth) {
-          console.log('y por aca');
+          console.log(localStorage.getItem('userId'));
+          console.log(tokenPush);
           client.mutate({
             mutation: gql`
             mutation {
               addToken(token: {
-                    userID: ${localStorage.getItem('userId')}
-                    tokenType: 2
-                    token: "${tokenPush}"
-                })
+                userID: ${localStorage.getItem('userId')}
+                tokenType: 2
+                token: "${tokenPush}"
+              })
             }`
             }).then(() => console.log('Se registro esta ... ')).catch(e => console.log(e));
         }
@@ -36,8 +37,11 @@ export default class Start extends Component{
       .catch(function(err) {
         console.log("Unable to get permission to notify.", err);
       });
-      messaging.onMessage((payload) => console.log('Message received. ', payload));
-      navigator.serviceWorker.addEventListener("message", (message) => alert(message));
+      messaging.onMessage((payload) => swal.fire(payload.data.message,'','success'));
+      navigator.serviceWorker.addEventListener("message", (message) => {
+        console.log("Message");
+        console.log(message);
+      });
     }
 
     render(){
