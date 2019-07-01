@@ -29,9 +29,9 @@ const uploadOneFile = () => {
     let name = document.getElementById('name').value
     let artist = document.getElementById('artist').value
     data.append('myFile',file)
-    swal.fire("Uploading ...!", {
-        button: false,
-        closeOnClickOutside: false,
+    swal.fire({title: 'Uploading! ...',
+    showConfirmButton: false,
+    allowOutsideClick: false
       });
     axios.post(`${baseURLFiles}/upload_song`,data,{
         headers: { 'Content-Type': 'multipart/form-data'  }
