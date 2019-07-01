@@ -60,8 +60,7 @@ export default class Login extends Component{
            })
            .then(data => {
              console.log(data.data.loginUser.token)
-             localStorage.setItem("jwtToken", data.data.loginUser.token);
-             localStorage.setItem("userId", data.data.loginUser.id)
+             localStorage.setItem("jwtToken", data.data.loginUser.token.token);
              if(this.state.error === null){
                setTimeout(function(){ window.location = `${baseURLFront}/`; },1000);
                swal.fire({

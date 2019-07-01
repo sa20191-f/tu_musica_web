@@ -15,6 +15,7 @@ import Menu from './Menu'
 import Footer from './Footer'
 import ApolloClient from 'apollo-boost';
 import gql from "graphql-tag";
+import store from "../store";
 
 import baseURL from "../url"
 const client = new ApolloClient({
@@ -24,7 +25,7 @@ const client = new ApolloClient({
 export default class Lists extends Component{
     constructor() {
 		super()
-		this.state = { listas: [],name: "",image: "",user_id: localStorage.getItem('userId'),email:"correo@correo.com"}
+		this.state = { listas: [],name: "",image: "",user_id: null,email:""}
 		client.query({
         query: gql`
         query{
@@ -71,8 +72,8 @@ export default class Lists extends Component{
             createList(list: {
                 name: "${this.state.name}"
                 image: "${this.state.image}"
-                user_id: ${this.state.user_id}
-                email: "${this.state.email}"
+                user_id: ${store.getState().id}
+                email: "${store.getState().email}"
             }){
                 name
                 email

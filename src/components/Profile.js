@@ -3,6 +3,7 @@ import Menu from './Menu'
 import Footer from './Footer'
 import swal from 'sweetalert2'
 import baseURLFront from '../urlFront';
+import store from "../store";
 
 export default class Profile extends Component{
 
@@ -61,7 +62,7 @@ export default class Profile extends Component{
                             <div className="icon mr-30">
                             <span className="icon-mail" />
                             </div>
-                            <p>yourmail@gmail.com</p>
+                            <p>{store.getState().email}</p>
                         </div>
                         <div className="oneMusic-buttons-area mb-100">
                             <button onClick={this.handleSubmit} className="btn oneMusic-btn m-2">Logout <i className="fa fa-angle-double-right"></i></button>
