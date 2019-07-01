@@ -6,9 +6,10 @@ import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "react-apollo";
 import gql from "graphql-tag";
 import store from './store';
+import baseURL from "./url"
 
 const client = new ApolloClient({
-  uri: "http://192.168.1.72:5000/graphql"
+  uri: `${baseURL}`
 });
 
 class App extends Component {
@@ -19,7 +20,7 @@ class App extends Component {
      
     }
    
-    /*componentWillMount(){
+    componentWillMount(){
        if (localStorage.getItem('jwtToken')) {
         client.query({
           query: gql`
@@ -41,7 +42,7 @@ class App extends Component {
         .catch(error => {console.error(error)
   });
       }
-    }*/
+    }
   
     render() {  
       //console.log(store.getState().aut )

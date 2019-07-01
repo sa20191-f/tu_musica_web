@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { messaging } from "../init-fcm";
 import ApolloClient from 'apollo-boost';
 import gql from "graphql-tag";
+import store from "../store";
 import swal from 'sweetalert2'
 
 import baseURL from "../url"
@@ -14,8 +15,7 @@ const client = new ApolloClient({
 export default class Start extends Component{
     
     componentDidMount() {
-      const auth = localStorage.getItem('jwtToken');
-      console.log(auth);
+      const auth = store.getState().id;
       messaging.requestPermission()
       .then(async function() {
         const tokenPush = await messaging.getToken();
@@ -26,10 +26,10 @@ export default class Start extends Component{
             mutation: gql`
             mutation {
               addToken(token: {
-                userID: ${localStorage.getItem('userId')}
-                tokenType: 2
-                token: "${tokenPush}"
-              })
+                    userID: ${store.getState().id}
+                    tokenType: 2
+                    token: "${tokenPush}"
+                })
             }`
             }).then(() => console.log('Se registro esta ... ')).catch(e => console.log(e));
         }
