@@ -18,4 +18,4 @@ COPY . .
 
 EXPOSE 4100
 
-CMD [ "HTTPS=true", "npm", "start" ]
+CMD [ "npm", "start" ]
