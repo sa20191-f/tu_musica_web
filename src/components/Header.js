@@ -16,7 +16,7 @@ export default class Start extends Component{
     
     componentDidMount() {
       const auth = store.getState().id;
-      /* messaging.requestPermission()
+      messaging.requestPermission()
       .then(async function() {
         const tokenPush = await messaging.getToken();
         if (auth) {
@@ -41,7 +41,7 @@ export default class Start extends Component{
       navigator.serviceWorker.addEventListener("message", (message) => {
         console.log("Message");
         console.log(message);
-      }); */
+      });
     }
 
     render(){

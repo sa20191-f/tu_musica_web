@@ -6,7 +6,9 @@ firebase.initializeApp({
   messagingSenderId: "532879941476"
 });
 
-const messaging = firebase.messaging();
+console.log("El error está acá");
+
+/* const messaging = firebase.messaging();
 
 messaging.setBackgroundMessageHandler(function(payload) {
   const promiseChain = clients
@@ -28,4 +30,4 @@ messaging.setBackgroundMessageHandler(function(payload) {
 self.addEventListener('notificationclick', function(event) {
   // do what you want
   // ...
-});
+}); */
