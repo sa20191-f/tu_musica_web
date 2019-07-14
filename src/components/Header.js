@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Menu from './Menu'
 import Footer from './Footer'
 import { Link } from 'react-router-dom';
-import { messaging } from "../init-fcm";
+// import { messaging } from "../init-fcm";
 import ApolloClient from 'apollo-boost';
 import gql from "graphql-tag";
 import store from "../store";
