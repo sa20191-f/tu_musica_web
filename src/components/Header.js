@@ -16,7 +16,7 @@ export default class Start extends Component{
     
     componentDidMount() {
       const auth = store.getState().id;
-      if (window.navigator.userAgent.indexOf("Edge") > -1 
+      /* if (window.navigator.userAgent.indexOf("Edge") > -1 
         || /Edge/.test(navigator.userAgent)) {
           console.log('I am in edge, then I will set up the notifications');
           messaging.requestPermission()
@@ -47,7 +47,7 @@ export default class Start extends Component{
           });
       } else {
         console.log("I am not edge");
-      }
+      } */
     }
 
     render(){
