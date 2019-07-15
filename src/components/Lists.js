@@ -83,7 +83,8 @@ export default class Lists extends Component{
         }`
         })
         .then(data => {
-        setTimeout(function () {window.location.reload();}, 1000);
+          swal.fire("has creado tu lista exitosamente",'','success');
+          setTimeout(function () {window.location.reload();}, 1000);
         })
         .catch(error => {console.error(error)});
         }
