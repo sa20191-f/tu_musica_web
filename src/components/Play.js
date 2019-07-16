@@ -12,6 +12,8 @@ export default class Play extends Component{
         const url = `${baseURLFiles}/getfile/${this.props.location.path}`
         console.log(url)
         this.setState({ song: url });
+        this.setState({ song_name: this.props.location.song_name });
+        this.setState({ artist: this.props.location.artist });
         console.log(this.state)
 
       }
@@ -38,8 +40,8 @@ export default class Play extends Component{
                         <div className="featured-artist-content">
                             {/* Section Heading */}
                             <div className="section-heading white text-left mb-30">
-                            <p>See what’s new</p>
-                            <h2>Buy What’s New</h2>
+                            <p>{this.state.artist}</p>
+                            <h2>{this.state.song_name}</h2>
                             </div>
                             <p>Nam tristique ex vel magna tincidunt, ut porta nisl finibus. Vivamus eu dolor eu quam varius rutrum. Fusce nec justo id sem aliquam fringilla nec non lacus. Suspendisse eget lobortis nisi, ac cursus odio. Vivamus nibh velit, rutrum at ipsum ac, dignissim iaculis ante. Donec in velit non elit pulvinar pellentesque et non eros.</p>
                             <div className="song-play-area">

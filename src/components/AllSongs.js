@@ -12,6 +12,7 @@ export default class AllSong extends Component{
       }
       
       componentDidMount() {
+        console.log(window.location.origin)
         axios({
             url: `${baseURL}`,
             method: 'post',
@@ -63,7 +64,9 @@ export default class AllSong extends Component{
                                 <ul>
                                     <li><Link to={{
                                         pathname: '/'+person.id,
-                                        path: person.path                                        
+                                        path: person.path,
+                                        artist: person.artist,
+                                        song_name:person.song_name                                        
                                         }}>Play</Link>
                                     </li>                                    
                                 </ul>
