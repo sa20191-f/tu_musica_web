@@ -29,9 +29,12 @@ export default class AllSong extends Component{
             }
           }).then((result) => {
             console.log(result.data)
-            const persons = result.data.data.songs
-            this.setState({ persons });
-            console.log(this.state)
+            const persons = result.data.data.songs;
+            if (persons) {
+              this.setState({ persons });
+              console.log(this.state)
+            }
+            
           });
       }
 
