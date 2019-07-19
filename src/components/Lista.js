@@ -5,7 +5,6 @@ export default class Lista extends Component{
     
 
     render(){
-        
         return(
             
             
@@ -16,7 +15,10 @@ export default class Lista extends Component{
                             <div className="single-album">
                                 <img src={this.props.image} alt =""/>
                             <div className="album-info">
-                            <Link to='/playlist' className="nav-brand" ><h5>{this.props.name}</h5></Link>
+                            <Link to={{
+                                        pathname: '/playlist',
+                                        list_id : this.props.keys,                                        
+                                        }} className="nav-brand" ><h5>{this.props.name}</h5></Link>
                             <p>Second Song</p>
                             </div>
                         </div>

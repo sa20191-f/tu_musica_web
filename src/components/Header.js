@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import Menu from './Menu'
 import Footer from './Footer'
 import { Link } from 'react-router-dom';
-import { messaging } from "../init-fcm";
+// import { messaging } from "../init-fcm";
 import ApolloClient from 'apollo-boost';
 import gql from "graphql-tag";
 import store from "../store";
@@ -16,32 +16,38 @@ export default class Start extends Component{
     
     componentDidMount() {
       const auth = store.getState().id;
-      messaging.requestPermission()
-      .then(async function() {
-        const tokenPush = await messaging.getToken();
-        if (auth) {
-          console.log(localStorage.getItem('userId'));
-          console.log(tokenPush);
-          client.mutate({
-            mutation: gql`
-            mutation {
-              addToken(token: {
-                    userID: ${store.getState().id}
-                    tokenType: 2
-                    token: "${tokenPush}"
-                })
-            }`
-            }).then(() => console.log('Se registro esta ... ')).catch(e => console.log(e));
-        }
-      })
-      .catch(function(err) {
-        console.log("Unable to get permission to notify.", err);
-      });
-      messaging.onMessage((payload) => swal.fire(payload.data.message,'','success'));
-      navigator.serviceWorker.addEventListener("message", (message) => {
-        console.log("Message");
-        console.log(message);
-      });
+      /* if (window.navigator.userAgent.indexOf("Edge") > -1 
+        || /Edge/.test(navigator.userAgent)) {
+          console.log('I am in edge, then I will set up the notifications');
+          messaging.requestPermission()
+          .then(async function() {
+            const tokenPush = await messaging.getToken();
+            if (auth) {
+              console.log(localStorage.getItem('userId'));
+              console.log(tokenPush);
+              client.mutate({
+                mutation: gql`
+                mutation {
+                  addToken(token: {
+                        userID: ${store.getState().id}
+                        tokenType: 2
+                        token: "${tokenPush}"
+                    })
+                }`
+                }).then(() => console.log('Se registro esta ... ')).catch(e => console.log(e));
+            }
+          })
+          .catch(function(err) {
+            console.log("Unable to get permission to notify.", err);
+          });
+          messaging.onMessage((payload) => swal.fire(payload.data.message,'','success'));
+          navigator.serviceWorker.addEventListener("message", (message) => {
+            console.log("Message");
+            console.log(message);
+          });
+      } else {
+        console.log("I am not edge");
+      } */
     }
 
     render(){

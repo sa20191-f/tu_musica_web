@@ -2,10 +2,16 @@ import React, { Component } from 'react'
 import Menu from './Menu'
 import Footer from './Footer'
 import baseURLFiles from './../urlFiles'
+import axios from 'axios';
+import baseURL from "../url"
+import ApolloClient from 'apollo-boost';
+import gql from 'graphql-tag'
+import swal from 'sweetalert2'
 
 export default class Play extends Component{
     state = {
-        song: ""
+        song: "",
+        lists:[]
       }
     componentDidMount() {
         console.log(this.props.location)
@@ -15,12 +21,53 @@ export default class Play extends Component{
         this.setState({ song_name: this.props.location.song_name });
         this.setState({ artist: this.props.location.artist });
         console.log(this.state)
-
+        axios({
+            url: `${baseURL}`,
+            method: 'post',
+            data: {
+              query: `
+                query {
+                  allList {
+                      id
+                      name
+                    }
+                  }
+                `
+            }
+          }).then((result) => {
+            console.log(result.data)
+            const lists = result.data.data.allList
+            this.setState({ lists });
+            console.log(this.state)
+          });
       }
 
-
+    
     render(){
         console.log(this.state)
+        const client = new ApolloClient({
+            uri: `${baseURL}`
+          });
+        const songVinculation = () => {
+    
+          client.mutate({
+            mutation: gql`
+            mutation{
+                createSongVinculations(songvinculations:{
+                  song_id:"${window.location.pathname.split('/')[1]}"
+                  list_id:${parseInt(document.getElementById('select_list').value)}
+                }){
+                  song_id
+                  id
+                }
+              }`
+            })
+            .then(data => {
+            console.log(data.data);
+            swal.fire("The song has been added",'','success');
+            })
+            .catch(error => {console.error(error)});
+        }
         return(
             
             <div>
@@ -51,6 +98,15 @@ export default class Play extends Component{
                             <audio preload="auto" controls>
                                 <source src={this.state.song} />
                             </audio>
+                            <p>Add the song to a list!</p>
+                                <select id="select_list">
+                                {this.state.lists.map(function(list){
+                                    return <option value={list.id}>{list.name}</option>
+                             })}
+                                </select>
+                                <br></br>
+                                <br></br>
+                                <button type="button" onClick={()=>songVinculation()}>Save</button>
                             </div>
                         </div>
                         </div>

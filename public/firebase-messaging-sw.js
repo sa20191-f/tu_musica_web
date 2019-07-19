@@ -5,7 +5,7 @@ firebase.initializeApp({
 	// Project Settings => Add Firebase to your web app
   messagingSenderId: "532879941476"
 });
-
+console.log('Por si algo');
 const messaging = firebase.messaging();
 
 messaging.setBackgroundMessageHandler(function(payload) {

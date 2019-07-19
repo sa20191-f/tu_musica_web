@@ -83,7 +83,8 @@ export default class Lists extends Component{
         }`
         })
         .then(data => {
-        setTimeout(function () {window.location.reload();}, 1000);
+          swal.fire("has creado tu lista exitosamente",'','success');
+          setTimeout(function () {window.location.reload();}, 1000);
         })
         .catch(error => {console.error(error)});
         }
@@ -213,7 +214,7 @@ export default class Lists extends Component{
                         
                         {this.state.listas.map((lista) => {
                                             return (
-                                                <Lista key={lista.id} image={lista.image} name={lista.name}/>                                                                                      
+                                                <Lista keys={lista.id} image={lista.image} name={lista.name}/>                                                                                      
                                             )
                                         })}
                         
